@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/table', [DataController::class, 'stats']);
+Route::get('/data-table', [DataController::class, 'data']);
