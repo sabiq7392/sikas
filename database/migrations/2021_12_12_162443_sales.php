@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Genre extends Migration
+class Sales extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class Genre extends Migration
      */
     public function up()
     {
-        Schema::create('genre', function(Blueprint $table) {
+        Schema::create('sales', function(Blueprint $table) {
             $table->id();
-            $table->string('nama');
-			$table->timestamps();
+            $table->foreignId('item_id')->references('id')->on('items');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->integer('sub_total');
+            $table->integer('total');
+            $table->timestamps();
         });
     }
 

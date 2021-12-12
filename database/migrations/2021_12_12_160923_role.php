@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Kritik extends Migration
+class Role extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class Kritik extends Migration
      */
     public function up()
     {
-        Schema::create('kritik', function(Blueprint $table) {
+        Schema::create('roles', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('film_id')->references('id')->on('film');
-            $table->text('isi');
-            $table->integer('point');
+            $table->string('name');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Film extends Migration
+class Units extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class Film extends Migration
      */
     public function up()
     {
-        Schema::create('film', function(Blueprint $table) {
+        Schema::create('units', function(Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->text('ringkasan');
-            $table->integer('tahun');
-            $table->string('poster');
-            $table->foreignId('genre_id')->references('id')->on('genre');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
