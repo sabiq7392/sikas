@@ -46,13 +46,6 @@ class ItemsController extends Controller
 
 	public function store(Request $request)
 	{
-		$createData = [ 
-			'name' => $request->item_name,
-			'category_id' => $request->item_category,
-			'price_per_box' => $request->item_price_per_box,
-			'stock_box' => $request->item_stock_box,
-		];
-
 		$rules = [
 			'name' => 'required',
 			'category_id' => 'required',
@@ -60,12 +53,12 @@ class ItemsController extends Controller
 			'stock_box' => 'required',
 		];
 
-		$validator = Validator::make($createData, $rules);
+		$validator = Validator::make($this->dataFromInput($request), $rules);
 
 		if ($validator->fails()) {
 			echo 'gagal';
 		} else {
-			Items::create($createData);
+			Items::create($this->dataFromInput($request));
 			return redirect('/items');
 		}
 	}
@@ -83,16 +76,20 @@ class ItemsController extends Controller
 
 	public function update(Request $request, $id) 
 	{
-		$createData = [ 
+		$item = Items::find($id);
+		
+		$item->update($this->dataFromInput($request));
+
+		return redirect("/items/detail/$id");
+	}
+
+	private function dataFromInput($request)
+	{
+		return [ 
 			'name' => $request->item_name,
 			'category_id' => $request->item_category,
 			'price_per_box' => $request->item_price_per_box,
 			'stock_box' => $request->item_stock_box,
 		];
-
-		$item = Items::find($id);
-		$item->update($createData);
-
-		return redirect("/items/detail/$id");
 	}
 }
