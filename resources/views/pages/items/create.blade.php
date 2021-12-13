@@ -1,12 +1,12 @@
 @extends('index')
 @section('content')
-  <form action="/items" method="post">
+  <form action="/item" method="post">
     @csrf
     <div class="form-group">
       <label for="itemName">Items Name</label>
       <input 
         id="itemName" 
-        name="item_name"
+        name="name"
         type="text" 
         class="form-control" 
         placeholder="Makanan"
@@ -16,7 +16,7 @@
       <label for="itemCategory">Category</label>
       <select 
         id="itemCategory" 
-        name="item_category" 
+        name="category_id" 
         class="form-control"
       >
         @foreach ($categories as $category)
@@ -28,7 +28,7 @@
       <label for="itemPricePerBox">Price Per Box</label>
       <input
         id="itemPricePerBox" 
-        name="item_price_per_box"
+        name="price_per_box"
         type="number"
         class="form-control" 
       />
@@ -37,7 +37,7 @@
       <label for="itemStockBox">Stock Box</label>
       <input
         id="itemStockBox" 
-        name="item_stock_box"
+        name="stock_box"
         type="number"
         class="form-control" 
       />

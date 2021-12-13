@@ -21,7 +21,7 @@
             <td>{{ $item->price_per_box }}</td>
             <td>{{ $item->stock_box }}</td>
             <td>
-              <a href="/items/edit/{{ $item->id }}" title="edit" class="btn btn-warning">
+              <a href="/item/{{ $item->id }}/edit" title="edit" class="btn btn-warning">
                 <i class="far fa-edit"></i>
               </a>
               <a href="" title="delete" class="btn btn-danger">

@@ -1,13 +1,13 @@
 @extends('index')
 @section('content')
-  <form action="/items/detail/{{ $item->id }}" method="post">
+  <form action="/item/{{ $item->id }}" method="post">
     {{ csrf_field() }}
     {{ method_field('PUT') }}
     <div class="form-group">
       <label for="itemName">Items Name</label>
       <input 
         id="itemName" 
-        name="item_name"
+        name="name"
         type="text" 
         class="form-control" 
         placeholder="Makanan"
@@ -18,7 +18,7 @@
       <label for="itemCategory">Category</label>
       <select 
         id="itemCategory" 
-        name="item_category" 
+        name="category_id" 
         class="form-control"
       > 
         @foreach ($categories as $category)
@@ -34,7 +34,7 @@
       <label for="bio">Price Per Box</label>
       <input
         id="itemPricePerBox" 
-        name="item_price_per_box"
+        name="price_per_box"
         type="number"
         class="form-control" 
         value="{{ $item->price_per_box }}"
@@ -44,7 +44,7 @@
       <label for="item_stock_box">Stock Box</label>
       <input
         id="itemStockBox" 
-        name="item_stock_box"
+        name="stock_box"
         type="number"
         class="form-control" 
         value="{{ $item->stock_box }}"
