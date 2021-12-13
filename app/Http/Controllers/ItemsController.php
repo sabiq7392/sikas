@@ -91,7 +91,6 @@ class ItemsController extends Controller
 		];
 
 		$item = Items::find($id);
-
 		$item->update($createData);
 
 		return redirect("/items/detail/$id");
