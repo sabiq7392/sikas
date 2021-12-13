@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ItemsDashboardController extends Controller
@@ -32,7 +32,7 @@ class ItemsDashboardController extends Controller
     {
         $data = [
             'title' => 'Create Items',
-            'categories' => Categories::all(),
+            'categories' => Category::all(),
         ];
 
         return view('pages.items.create', $data);
@@ -91,7 +91,7 @@ class ItemsDashboardController extends Controller
         $data = [
             'title' => 'Edit',
             'item' => $item,
-            'categories' => Categories::all(),
+            'categories' => Category::all(),
         ];
 
         return view('pages.items.edit', $data);

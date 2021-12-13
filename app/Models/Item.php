@@ -20,7 +20,7 @@ class Item extends Model
         return Items::where('id', $id)->first();
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Categories::class);
     }
