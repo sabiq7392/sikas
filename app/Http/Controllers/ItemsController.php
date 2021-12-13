@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ItemsController extends Controller
 {
+	public function __construct()
+	{
+		$this->itemsModel = new Items();
+	}
+
 	public function index() 
 	{
 		$data = [
@@ -61,7 +66,7 @@ class ItemsController extends Controller
 			echo 'gagal';
 		} else {
 			Items::create($createData);
-			return  redirect('/items');
+			return redirect('/items');
 		}
 	}
 
@@ -69,7 +74,8 @@ class ItemsController extends Controller
 	{
 		$data = [
 			'title' => 'Edit',
-			'item' => Items::find($id),
+			'item' => $this->itemsModel->findById($id),
+			'categories' => Categories::all(),		
 		];
 
 		return view('pages.items.edit', $data);

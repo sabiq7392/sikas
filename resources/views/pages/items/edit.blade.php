@@ -20,8 +20,14 @@
         id="itemCategory" 
         name="item_category" 
         class="form-control"
-      >
-        <option value="{{ $item->category_id }}">{{ $item->category_id }}</option>
+      > 
+        @foreach ($categories as $category)
+          @if ($item->category == $category->name) 
+            <option value="{{ $item->category }}" selected>{{ $item->category }}</option>
+          @else
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endif
+        @endforeach
       </select>
     </div>
     <div class="form-group">
