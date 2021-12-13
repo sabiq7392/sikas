@@ -16,9 +16,9 @@ class Items extends Migration
         Schema::create('items', function(Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
-            $table->foreignId('unit_id')->references('id')->on('units');
-            $table->integer('stock');
+            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->integer('price_per_box');
+            $table->integer('stock_box');
             $table->timestamps();
         });
     }
