@@ -23,15 +23,17 @@
               <td>{{ $item->price_per_box }}</td>
               <td>{{ $item->stock_box }}</td>
               <td>
-                <a href="/items/detail/{{ $item->id }}" title="detail" class="btn btn-success">
+                <a href="/item/{{ $item->id }}" title="detail" class="btn btn-success">
                   <i class="far fa-eye"></i>
                 </a>
-                <a href="/items/edit/{{ $item->id }}" title="edit" class="btn btn-warning">
+                <a href="/item/{{ $item->id }}/edit" title="edit" class="btn btn-warning">
                   <i class="far fa-edit"></i>
                 </a>
-                <a href="" title="delete" class="btn btn-danger">
-                  <i class="far fa-trash-alt"></i>
-                </a>
+                <form action="/item/{{ $item->id }}" class="d-inline" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                </form>
               </td>
             </tr>
           @endforeach

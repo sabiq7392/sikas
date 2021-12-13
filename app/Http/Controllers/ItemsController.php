@@ -14,7 +14,7 @@ class ItemsController extends Controller
 		$this->itemsModel = new Items();
 	}
 
-	public function index() 
+	public function index()
 	{
 		$data = [
 			'title' => 'Show All Items',
@@ -24,7 +24,7 @@ class ItemsController extends Controller
 		return view('pages.items.index', $data);
 	}
 
-	public function show($id) 
+	public function show($id)
 	{
 		$data = [
 			'title' => 'Detail',
@@ -38,7 +38,7 @@ class ItemsController extends Controller
 	{
 		$data = [
 			'title' => 'Create Items',
-			'categories' => Categories::all(), 
+			'categories' => Categories::all(),
 		];
 
 		return view('pages.items.create', $data);
@@ -68,16 +68,16 @@ class ItemsController extends Controller
 		$data = [
 			'title' => 'Edit',
 			'item' => $this->itemsModel->findById($id),
-			'categories' => Categories::all(),		
+			'categories' => Categories::all(),
 		];
 
 		return view('pages.items.edit', $data);
-	} 
+	}
 
-	public function update(Request $request, $id) 
+	public function update(Request $request, $id)
 	{
 		$item = Items::find($id);
-		
+
 		$item->update($this->dataFromInput($request));
 
 		return redirect("/items/detail/$id");
@@ -85,7 +85,7 @@ class ItemsController extends Controller
 
 	private function dataFromInput($request)
 	{
-		return [ 
+		return [
 			'name' => $request->item_name,
 			'category_id' => $request->item_category,
 			'price_per_box' => $request->item_price_per_box,

@@ -17,22 +17,29 @@ class Items extends Model
 		'stock_box',
 	];
 
-	public function getAllJoinedTable()
+	// public function getAllJoinedTable()
+	// {
+	// 	return $this->joinCategories()->get();
+	// }
+
+	public function findById($id)
 	{
-		return $this->joinCategories()->get();
+		// return $this->joinCategories()
+		// 	->where('items.id', $id)
+		// 	->first();
+
+		return Items::where('id', $id)->first();
 	}
 
-	public function findById($id) 
-	{
-		return $this->joinCategories()
-								->where('items.id', $id)
-								->first();
-	}
+	// private function joinCategories() 
+	// {
+	// 	return DB::table('items')
+	// 					->select('items.id', 'items.name', 'categories.name as category', 'items.price_per_box', 'items.stock_box')
+	// 					->join('categories', 'categories.id', '=', 'items.category_id');
+	// }
 
-	private function joinCategories() 
+	public function categories()
 	{
-		return DB::table('items')
-						->select('items.id', 'items.name', 'categories.name as category', 'items.price_per_box', 'items.stock_box')
-						->join('categories', 'categories.id', '=', 'items.category_id');
+		return $this->belongsTo(Categories::class);
 	}
 }
