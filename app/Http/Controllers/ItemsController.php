@@ -5,91 +5,89 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ItemsController extends Controller
 {
-    public function index() 
-    {
-        $data = [
-            'title' => 'Show All Items',
-            'items' => Items::All(),
-        ];
+	public function index() 
+	{
+		$data = [
+			'title' => 'Show All Items',
+			'items' => Items::All(),
+		];
 
-        return view('pages.items.index', $data);
-    }
+		return view('pages.items.index', $data);
+	}
 
-    public function show($id) 
-    {
-        $data = [
-            'title' => 'Detail',
-            'item' => Items::find($id),
-        ];
+	public function show($id) 
+	{
+		$data = [
+			'title' => 'Detail',
+			'item' => Items::find($id),
+		];
 
-        return view('pages.items.show', $data);
-    }
+		return view('pages.items.show', $data);
+	}
 
-    public function create()
-    {
-        $data = [
-            'title' => 'Create Items',
-            'categories' => Categories::all(), 
-        ];
+	public function create()
+	{
+		$data = [
+			'title' => 'Create Items',
+			'categories' => Categories::all(), 
+		];
 
-        return view('pages.items.create', $data);
-    }
+		return view('pages.items.create', $data);
+	}
 
-    public function store(Request $request)
-    {
-        $createData = [ 
-            'name' => $request->item_name,
-            'category_id' => $request->item_category,
-            'price_per_box' => $request->item_price_per_box,
-            'stock_box' => $request->item_stock_box,
-        ];
+	public function store(Request $request)
+	{
+		$createData = [ 
+			'name' => $request->item_name,
+			'category_id' => $request->item_category,
+			'price_per_box' => $request->item_price_per_box,
+			'stock_box' => $request->item_stock_box,
+		];
 
-        Items::create($createData);
-        return  redirect('/items');
-    }
+		$rules = [
+			'name' => 'required',
+			'category_id' => 'required',
+			'price_per_box' => 'required',
+			'stock_box' => 'required',
+		];
 
+		$validator = Validator::make($createData, $rules);
 
-    public function edit($id)
-    {
-        $data = [
-            'title' => 'Edit',
-            'item' => Items::find($id),
-        ];
+		if ($validator->fails()) {
+			echo 'gagal';
+		} else {
+			Items::create($createData);
+			return  redirect('/items');
+		}
+	}
 
-        return view('pages.items.edit', $data);
-    } 
+	public function edit($id)
+	{
+		$data = [
+			'title' => 'Edit',
+			'item' => Items::find($id),
+		];
 
+		return view('pages.items.edit', $data);
+	} 
 
-    // public function update(Request $request, $id) 
-    // {
-    //     $item = Items::find($id);
+	public function update(Request $request, $id) 
+	{
+		$createData = [ 
+			'name' => $request->item_name,
+			'category_id' => $request->item_category,
+			'price_per_box' => $request->item_price_per_box,
+			'stock_box' => $request->item_stock_box,
+		];
 
-    //     $request->validate([
-    //         'item_name' => 'required',
-    //         'item_price_per_box' => 'required',
-    //         'item_stock_box' => 'required', 
-    //     ]);
+		$item = Items::find($id);
 
-    //     $item->update($request->all());
+		$item->update($createData);
 
-    //     return redirect("/items/detail/$id");
-    // }
-    // public function stats()
-    // {
-    //     $data = [
-    //         'title' => 'Statistic',
-    //     ]; 
-    //     return view('contents.stats', $data);
-    // }
-
-    // public function data()
-    // {
-    //     $data = [
-    //         'title' => 'Data Table',
-    //     ];
-    //     return view('contents.data', $data);
-    // }
+		return redirect("/items/detail/$id");
+	}
 }

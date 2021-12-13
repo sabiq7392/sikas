@@ -15,6 +15,16 @@
       />
     </div>
     <div class="form-group">
+      <label for="itemCategory">Category</label>
+      <select 
+        id="itemCategory" 
+        name="item_category" 
+        class="form-control"
+      >
+        <option value="{{ $item->category_id }}">{{ $item->category_id }}</option>
+      </select>
+    </div>
+    <div class="form-group">
       <label for="bio">Price Per Box</label>
       <input
         id="itemPricePerBox" 
