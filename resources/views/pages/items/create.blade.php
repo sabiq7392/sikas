@@ -14,12 +14,15 @@
     </div>
     <div class="form-group">
       <label for="itemCategory">Category</label>
-      <input 
+      <select 
         id="itemCategory" 
-        name="item_category"
-        type="number" 
-        class="form-control" 
-      />
+        name="item_category" 
+        class="form-control"
+      >
+        @foreach ($categories as $category)
+          <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+      </select>
     </div>
     <div class="form-group">
       <label for="itemPricePerBox">Price Per Box</label>

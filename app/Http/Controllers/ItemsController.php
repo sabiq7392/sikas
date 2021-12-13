@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Items;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,7 @@ class ItemsController extends Controller
     {
         $data = [
             'title' => 'Create Items',
+            'categories' => Categories::all(), 
         ];
 
         return view('pages.items.create', $data);
