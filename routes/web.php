@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ItemsDashboardController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 // Route::put('/items/detail/{id}', [ItemsController::class, 'update']);
 
 Route::resource('/item', ItemsDashboardController::class);
+Route::resource('/category', CategoryDashboardController::class);
 
 
 // Route::get('/table', [DataController::class, 'stats']);
