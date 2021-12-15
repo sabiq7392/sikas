@@ -19,8 +19,8 @@ input, button {
 }
 
 *:focus {
-  border: $color-dark;
-  outline: 1px solid $color-dark;
+  border-color: $color-dark;
+  outline-color: $color-dark;
 }
 
 @import './pages/login/login';

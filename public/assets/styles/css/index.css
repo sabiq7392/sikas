@@ -17,8 +17,8 @@ input, button {
 }
 
 *:focus {
-  border: #573F4C;
-  outline: 1px solid #573F4C;
+  border-color: #573F4C;
+  outline-color: #573F4C;
 }
 
 .auth-container {
@@ -33,9 +33,9 @@ input, button {
   display: grid;
   place-items: center;
   background-color: rgba(234, 201, 226, 0.6);
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
 }
 
 .auth-container .greeting h1 {
@@ -48,9 +48,9 @@ input, button {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   background-color: #eac9e2;
 }
 
@@ -122,20 +122,21 @@ input, button {
   transition: 200ms;
 }
 
+.auth-container .form-input-auth .card form .input-container label.active {
+  top: -8px;
+  background-color: white;
+  font-size: 14px;
+  padding: 0 0.5rem;
+}
+
 .auth-container .form-input-auth .card form .input-container input {
   background-color: rgba(185, 166, 224, 0.33);
   padding: 0 0.7rem;
   border-radius: 4px;
 }
 
-.auth-container .form-input-auth .card form .input-container input:focus {
+.auth-container .form-input-auth .card form .input-container input.active {
+  border: 1px solid #573F4C;
   background: white;
-}
-
-.auth-container .form-input-auth .card form .input-container input:focus + label {
-  top: -8px;
-  background-color: white;
-  font-size: 14px;
-  padding: 0 0.5rem;
 }
 /*# sourceMappingURL=index.css.map */

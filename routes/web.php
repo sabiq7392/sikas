@@ -28,7 +28,7 @@ use App\Http\Controllers\LoginController;
 
 Route::resource('/item', ItemsDashboardController::class);
 Route::resource('/category', CategoryDashboardController::class);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/auth/login', [LoginController::class, 'index']);
 
 // Route::get('/table', [DataController::class, 'stats']);
 // Route::get('/data-table', [DataController::class, 'data']);

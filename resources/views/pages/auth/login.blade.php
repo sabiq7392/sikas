@@ -27,17 +27,18 @@
         </div>
         <form action="">
           <div class="input-container">
-            <input id="username" type="text">
-            <label for="username">Username</label>
+            <input id="username" class="auth-input" type="text">
+            <label for="username" class="auth-label" >Username</label>
           </div>
           <div class="input-container">
-            <input id="password" type="text">
-            <label for="password">Password</label>
+            <input id="password" class="auth-input" type="password">
+            <label for="password" class="auth-label">Password</label>
           </div>
         </form>
       </div>
     </div>
   </div>
 
+  <script type="text/javascript" src="{{ asset('assets/scripts/auth-input-label.js') }}"></script>
 </body>
 </html>

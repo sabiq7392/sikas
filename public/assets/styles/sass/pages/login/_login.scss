@@ -11,7 +11,7 @@
   .greeting {
     @include place-center(grid);
     background-color: $color-background-light;
-    flex: 2;
+    flex: 3;
     h1 {
       font-size: 72px;
       text-align: center;
@@ -21,7 +21,7 @@
 
   .form-input-auth {
     @include place-center(grid);
-    flex: 1;
+    flex: 2;
     background-color: $color-background-thick;
     .card {
       @include card();
@@ -65,21 +65,22 @@
             top: 10px;
             left: 10px;
             transition: $transition-fast;
+
+            &.active {
+              top: -8px;
+              background-color: white;
+              font-size: 14px;
+              padding: 0 0.5rem;
+            }
           }
 
           input {
             background-color: $background-input;
             padding: 0 0.7rem;
             border-radius: $radius-sm;
-            &:focus {
+            &.active {
+              border: 1px solid $color-dark;
               background: white;
-            }
-
-            &:focus + label {
-              top: -8px;
-              background-color: white;
-              font-size: 14px;
-              padding: 0 0.5rem;
             }
           }
         }
