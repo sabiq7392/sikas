@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ItemsDashboardController;
 use App\Http\Controllers\CategoryDashboardController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ use App\Http\Controllers\CategoryDashboardController;
 
 Route::resource('/item', ItemsDashboardController::class);
 Route::resource('/category', CategoryDashboardController::class);
-
+Route::get('/login', [LoginController::class, 'index']);
 
 // Route::get('/table', [DataController::class, 'stats']);
 // Route::get('/data-table', [DataController::class, 'data']);
