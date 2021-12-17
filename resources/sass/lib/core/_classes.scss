@@ -1,0 +1,30 @@
+.align-items-center { align-items: center; }
+
+.container {
+  @include container();
+}
+
+.container-fluid {
+  @include container-fluid();
+}
+
+.d-none { display: none; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+.flex-wrap { flex-wrap: wrap; }
+
+.gap-sm { gap: 5px; }
+.gap-md { gap: 10px; }
+.gap-lg { gap: 15px; }
+.gap-xl { gap: 20px; }
+
+.h-100vh { height: 100vh; }
+
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+
+.m-auto { margin: auto; }
+
+.place-items-center { place-items: center; }
+  

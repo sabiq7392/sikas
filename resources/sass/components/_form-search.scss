@@ -1,0 +1,27 @@
+form#formSearch {
+  $radius-search-input: 30px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  border-radius: $radius-search-input;
+  box-shadow: $shadow-default;
+  input[type="search"] {
+    flex-grow: 5;
+    padding: 0 $padding-md;
+
+    border-top-left-radius: $radius-search-input;
+    border-bottom-left-radius: $radius-search-input;
+    &::placeholder {
+      color: $color-primary;
+      font-size: 14px;
+    }
+  }
+  
+  button[type="submit"] {
+    background: white;
+    flex-grow: 1;
+    border-top-right-radius: $radius-search-input;
+    border-bottom-right-radius: $radius-search-input;
+  }
+}

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
         $data = [
-            'title' => 'Login',
+            'title' => 'Dashboard',
         ];
 
-        return view('pages.auth.login', $data);
+        return view('pages.dashboard.index', $data);
     }
 }

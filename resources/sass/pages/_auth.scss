@@ -1,0 +1,96 @@
+@mixin fontLabelAndSwitchStyle($color) {
+  font-size: $sub-heading;
+  font-weight: 600;
+  color: $color;
+  letter-spacing: 0.3px;
+}
+
+#authContainer {
+  .greeting {
+    @include place-center(grid);
+    background-color: $color-background-light;
+    flex: 5;
+    h1 {
+      font-size: 60px;
+      text-align: center;
+      color: $color-primary;
+      font-family: $font-secondary;
+      @include media('tablet') {
+        font-size: 50px;
+      }
+      @include media('phone') {
+        font-size: 35px;
+      }
+    }
+    img {
+      width: 600px;
+      @include media('tablet') {
+        width: 500px;
+      }
+      @include media('phone') {
+        width: 350px;
+      }
+    }
+  }
+
+  .form-input-auth {
+    @include place-center(grid);
+    flex: 4;
+    background: $linear-gradient-default;
+    .card {
+      display: grid;
+      gap: $gap-xxl;
+
+      width: 80%;
+      max-width: 500px!important;
+      padding: $padding-md;
+
+      box-shadow: $shadow-default;
+      border-radius: $radius-xxl;
+
+      // background-image: url('../images/wave-1.png');
+      background-color: white;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      .switch {
+        $radius-half-circle: 30px;
+
+        display: flex;
+
+        background-color: white;
+        box-shadow: $shadow-default;
+        border-radius: $radius-half-circle;
+        a.login, a.register {
+          @include place-center(grid);
+          font-size: $sub-heading;
+          font-weight: 600;
+          color: $color-primary;
+          letter-spacing: 0.3px;
+          flex: 2;
+
+          border-radius: inherit;
+          background-color: white;
+          &.active {
+            background-color: rgba($color-primary, 0.4);
+            color: $color-dark;
+            flex: 3;
+          }
+        }
+      }
+      form {
+        display: inherit;
+        gap: $gap-xl;
+        button#showHidePassword {
+          position: absolute;
+          right: 0;
+          font-size: 18px;
+          z-index: 2;
+
+          background: rgba($color: #fff, $alpha: 0.3);
+          border-radius: $radius-sm;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

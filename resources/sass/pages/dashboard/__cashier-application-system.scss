@@ -1,0 +1,42 @@
+article#cashierApplicationSystem {
+  display: flex;
+  justify-content: space-between;
+  gap: $gap-xxl;
+
+  padding: $padding-md;
+
+  box-shadow: $shadow-default;
+  background: white;
+  
+  border-radius: $radius-xxl;
+
+  flex: 7;
+  img.cashier-app-system {
+    @include media('tablet') {
+      width: 250px;
+    }
+  }
+  div.cashier-app-system-container {
+    display: grid;
+    gap: $gap-md;
+
+    h3 {
+      font-size: 36px;
+      color: $color-dark;
+    }
+    a.go-to-cashier {
+      @include place-center(flex);
+      background: $color-dark;
+
+      color: $color-primary;
+      font-weight: bold;
+
+      border-radius: 30px;
+
+      img.icon-arrow-go-to-cashier {
+        width: 28px;
+        height: 24px;
+      }
+    }
+  }
+}

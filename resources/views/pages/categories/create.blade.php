@@ -3,7 +3,7 @@
   <form action="/category" method="post">
     @csrf
     <div class="form-group">
-      <label for="name">Kategori</label>
+      <label for="name">Category</label>
       <input 
         id="name" 
         name="name"

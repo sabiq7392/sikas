@@ -1,0 +1,31 @@
+#menu {
+  background: linear-gradient(
+    180deg, #FFFFFF -15.13%, rgba(255, 255, 255, 0) 116.75%
+  );
+  box-shadow: $shadow-default;
+  padding: $padding-md;
+  border-radius: $radius-xxl;
+  h3 {
+    font-size: 24px;
+    color: $color-dark;
+  }
+  article {
+    flex: 1;
+    background: white;
+    border-radius: 30px;
+    padding: $padding-md;
+    position: relative;
+    display: grid;
+    background-image: url('../images/wave-1.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    h4 {
+      font-size: 30px;
+      color: $color-dark;
+    }
+
+    img {
+      justify-self: end;
+    }
+  }
+}
