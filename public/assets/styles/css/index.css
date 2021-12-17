@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap");
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kulim Park', sans-serif;
+}
+
+input, button {
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+}
+
+*:focus {
+  border: #573F4C;
+  outline: 1px solid #573F4C;
+}
+
+.auth-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.auth-container .greeting {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: rgba(234, 201, 226, 0.6);
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.auth-container .greeting h1 {
+  font-size: 72px;
+  text-align: center;
+  color: #B9A6E0;
+}
+
+.auth-container .form-input-auth {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #eac9e2;
+}
+
+.auth-container .form-input-auth .card {
+  background-color: white;
+  padding: 2rem;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  display: -ms-grid;
+  display: grid;
+  gap: 25px;
+  width: 80%;
+  background-image: url("../../images/wave-1.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.auth-container .form-input-auth .card .switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+}
+
+.auth-container .form-input-auth .card .switch button {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  border-radius: inherit;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 600;
+  color: #B9A6E0;
+  letter-spacing: 0.3px;
+}
+
+.auth-container .form-input-auth .card .switch button.active {
+  background-color: #B9A6E0;
+  color: #573F4C;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.auth-container .form-input-auth .card form {
+  display: inherit;
+  gap: 20px;
+}
+
+.auth-container .form-input-auth .card form .input-container {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+}
+
+.auth-container .form-input-auth .card form .input-container label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #573F4C;
+  letter-spacing: 0.3px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.auth-container .form-input-auth .card form .input-container input {
+  background-color: rgba(185, 166, 224, 0.33);
+  padding: 0 0.7rem;
+  border-radius: 4px;
+}
+
+.auth-container .form-input-auth .card form .input-container input:focus {
+  background: white;
+}
+
+.auth-container .form-input-auth .card form .input-container input:focus + label {
+  top: -8px;
+  background-color: white;
+  font-size: 14px;
+  padding: 0 0.5rem;
+}
+/*# sourceMappingURL=index.css.map */
