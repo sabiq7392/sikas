@@ -3,6 +3,16 @@
   <form action="/item" method="post">
     @csrf
     <div class="form-group">
+      <label for="user_id">Items Name</label>
+      <input 
+        id="user_id" 
+        name="user_id"
+        type="hidden" 
+        class="form-control" 
+        placeholder="Makanan" value="2"
+      />
+    </div>
+    <div class="form-group">
       <label for="itemName">Items Name</label>
       <input 
         id="itemName" 
@@ -29,6 +39,15 @@
       <input
         id="itemPricePerBox" 
         name="price_per_box"
+        type="number"
+        class="form-control" 
+      />
+    </div>
+    <div class="form-group">
+      <label for="product_per_box">Product Per Box</label>
+      <input
+        id="product_per_box" 
+        name="product_per_box"
         type="number"
         class="form-control" 
       />

@@ -6,7 +6,7 @@ use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ItemsDashboardController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,21 +47,16 @@ class ItemsDashboardController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
+            'user_id' => 'required',
             'category_id' => 'required',
+            'name' => 'required',
             'price_per_box' => 'required',
+            'product_per_box' => 'required',
             'stock_box' => 'required',
         ]);
 
         Item::create($validatedData);
         return redirect('/item')->with('success', 'Berhasil Tambah Item');
-
-        // if ($validator->fails()) {
-        //     echo 'gagal';
-        // } else {
-        //     Item::create($this->dataFromInput($request));
-        //     return redirect('/items');
-        // }
     }
 
     /**
@@ -107,11 +102,13 @@ class ItemsDashboardController extends Controller
     public function update(Request $request, Item $item)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
             'category_id' => 'required',
+            'name' => 'required',
             'price_per_box' => 'required',
+            'product_per_box' => 'required',
             'stock_box' => 'required',
         ]);
+
         $item->update($validatedData);
         return redirect("/item/$item->id")->with('success', 'Item Berhasil Diupdate');
     }
@@ -127,14 +124,4 @@ class ItemsDashboardController extends Controller
         Item::destroy('id', $item->id);
         return redirect("/item")->with('success', 'Item Berhasil Dihapus');
     }
-
-    // private function dataFromInput($request)
-    // {
-    //     return [
-    //         'name' => $request->item_name,
-    //         'category_id' => $request->item_category,
-    //         'price_per_box' => $request->item_price_per_box,
-    //         'stock_box' => $request->item_stock_box,
-    //     ];
-    // }
 }

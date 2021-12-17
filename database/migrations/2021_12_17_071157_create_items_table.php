@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Status extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class Status extends Migration
      */
     public function up()
     {
-        Schema::create('status', function(Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignid('category_id');
             $table->string('name');
+            $table->integer('price_per_box');
+            $table->integer('product_per_box');
+            $table->integer('stock_box');
+            $table->timestamps();
         });
     }
 
