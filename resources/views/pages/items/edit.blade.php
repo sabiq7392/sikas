@@ -41,6 +41,16 @@
       />
     </div>
     <div class="form-group">
+      <label for="bio">Product Per Box</label>
+      <input
+        id="itemPricePerBox" 
+        name="product_per_box"
+        type="number"
+        class="form-control" 
+        value="{{ $item->product_per_box }}"
+      />
+    </div>
+    <div class="form-group">
       <label for="item_stock_box">Stock Box</label>
       <input
         id="itemStockBox" 

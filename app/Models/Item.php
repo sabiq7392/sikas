@@ -7,21 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    use HasFactory;
     protected $fillable = [
-        'name',
+        'user_id',
         'category_id',
+        'name',
         'price_per_box',
+        'product_per_box',
         'stock_box',
     ];
 
-    public function findById($id)
-    {
-        return Items::where('id', $id)->first();
-    }
-
     public function category()
     {
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Category::class);
     }
 }
