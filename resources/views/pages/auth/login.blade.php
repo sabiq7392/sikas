@@ -1,4 +1,4 @@
-@extends('beta_index')
+@extends('master')
 @section('auth')
   <main id="authContainer" class="d-flex h-100vh flex-wrap">
     <div class="greeting">

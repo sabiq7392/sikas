@@ -1,7 +1,7 @@
 <nav id="sidebar">
   <h1 class="brand">S<span id="brandLongName">IKAS</span></h1>
   <div class="menu">
-    <a href="" class="active">
+    <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">
       <i class="bi bi-speedometer"></i> 
       <span>Dashboard</span>
     </a>
@@ -9,7 +9,7 @@
       <i class="bi bi-coin"></i> 
       <span>Cashier</span>
     </a>
-    <a href="">
+    <a href="/items" class="{{ Request::is('items') ? 'active' : '' }}">
       <i class="bi bi-box-seam"></i> 
       <span>Items</span>
     </a>

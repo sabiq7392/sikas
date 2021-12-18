@@ -1,9 +1,9 @@
 <nav id="navbar">
   <div class="container d-flex align-items-center justify-content-between">
-    <h2 tabindex="0">Dashboard</h2>
+    <h2 tabindex="0">{{ $title }}</h2>
     <div class="d-flex align-items-center gap-sm">
-      <p><b>Admin 101</b></p>
-      <img src="{{ asset('images/user.png') }}" alt="">
+      <p tabindex="0"><b>Admin 101</b></p>
+      <img src="{{ asset('images/user.png') }}" alt="Admin 101">
     </div>
   </div>
 </nav>

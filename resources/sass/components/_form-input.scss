@@ -1,4 +1,6 @@
 form {
+  display: grid;
+  gap: $gap-xl;
   .input-container {
     display: grid;
     position: relative;

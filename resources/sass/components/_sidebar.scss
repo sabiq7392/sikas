@@ -31,9 +31,10 @@
   .menu {
     display: flex;
     flex-direction: column;
+    gap: $gap-sm;
     a {
       display: flex;
-      gap: $gap-sm;
+      gap: $gap-md;
 
       font-size: 20px;
       font-weight: 600;

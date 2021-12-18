@@ -26,7 +26,7 @@ use App\Http\Controllers\RegisterController;
 // Route::get('/items/edit/{id}', [ItemsController::class, 'edit']);
 // Route::put('/items/detail/{id}', [ItemsController::class, 'update']);
 
-Route::resource('/item', ItemsDashboardController::class);
+Route::resource('/items', ItemsDashboardController::class);
 Route::resource('/category', CategoryDashboardController::class);
 
 

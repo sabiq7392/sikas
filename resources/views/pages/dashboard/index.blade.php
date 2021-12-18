@@ -1,4 +1,4 @@
-@extends('beta_index')
+@extends('master')
 @section('content')
   <div id="dashboard" class="container d-grid gap-xl">
     <div class="d-flex gap-xl flex-wrap">
@@ -25,12 +25,12 @@
       <article id="recentActivity">
         <form id="formSearch" action="">
           <input 
-            id=""
+            id="inputSearch"
             name=""
             type="search" 
             placeholder="search recent activity"
           />
-          <button type="submit" aria-label="search activity">
+          <button id="buttonSearchSubmit" type="submit" aria-label="search activity">
             <i class="bi bi-search"></i>
           </button>
         </form>
@@ -60,28 +60,28 @@
 
     <section id="menu">
       <h3 tabindex="0">Menu</h3>
-      <div class="d-flex gap-lg">
-        <article>
-          <h4 tabindex="0">Product</h4>
+      <div class="d-flex gap-lg flex-wrap">
+        <a href="">
+          <span tabindex="0">Product</span>
           <img 
             src="{{ asset('images/product.png') }}" 
             alt="Menu Product"
           />
-        </article>
-        <article>
-          <h4 tabindex="0">Admin</h4>
+        </a>
+        <a href="">
+          <span tabindex="0">Admin</span>
           <img 
             src="{{ asset('images/admin.png') }}" 
             alt="Menu Admin"
           />
-        </article>
-        <article>
-          <h4 tabindex="0">Categories</h4>
+        </a>
+        <a href="">
+          <span tabindex="0">Categories</span>
           <img 
             src="{{ asset('images/categories.png') }}" 
             alt="Menu Categories"
           />
-        </article>
+        </a>
       </div>
     </section>
   </div>

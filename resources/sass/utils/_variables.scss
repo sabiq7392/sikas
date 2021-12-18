@@ -7,6 +7,7 @@ $color-light: rgba(#eac9e2, 0.6);
 $color-background-thick: #eac9e2;
 $color-background-light: rgba(#eac9e2, 0.6);
 $color-dark: #573F4C;
+$color-transparent: rgba($color: #000000, $alpha: 0);
 
 $debug: 1px solid red;
 
@@ -35,7 +36,7 @@ $radius-cirlce: 50%;
 
 $sidebar-size-max: 300px;
 $sidebar-size-min: 90px;
-$shadow-default: 0px 0px 15px rgba(0, 0, 0, 0.15);
+$shadow-default: 0px 0px 7px rgba(0, 0, 0, 0.05);
 $sub-heading: 18px;
 
 $transition-fast: 200ms;

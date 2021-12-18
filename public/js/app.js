@@ -2423,18 +2423,75 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+var _onFocus = /*#__PURE__*/new WeakSet();
+
+var _onBlur = /*#__PURE__*/new WeakSet();
+
+var _addBorder = /*#__PURE__*/new WeakSet();
+
+var _removeBorder = /*#__PURE__*/new WeakSet();
+
 var Search = /*#__PURE__*/function () {
   function Search() {
     _classCallCheck(this, Search);
+
+    _classPrivateMethodInitSpec(this, _removeBorder);
+
+    _classPrivateMethodInitSpec(this, _addBorder);
+
+    _classPrivateMethodInitSpec(this, _onBlur);
+
+    _classPrivateMethodInitSpec(this, _onFocus);
+
+    this.form = document.querySelector('#formSearch');
+    this.input = document.querySelector('#inputSearch');
   }
 
   _createClass(Search, [{
     key: "render",
-    value: function render() {}
+    value: function render() {
+      _classPrivateMethodGet(this, _onFocus, _onFocus2).call(this);
+
+      _classPrivateMethodGet(this, _onBlur, _onBlur2).call(this);
+    }
   }]);
 
   return Search;
 }();
+
+function _onFocus2() {
+  var _this = this;
+
+  var form = this.form,
+      input = this.input;
+  input.addEventListener('focus', function () {
+    return _classPrivateMethodGet(_this, _addBorder, _addBorder2).call(_this, form);
+  });
+}
+
+function _onBlur2() {
+  var _this2 = this;
+
+  var form = this.form,
+      input = this.input;
+  input.addEventListener('blur', function () {
+    return _classPrivateMethodGet(_this2, _removeBorder, _removeBorder2).call(_this2, form);
+  });
+}
+
+function _addBorder2(form) {
+  form.classList.add('active');
+}
+
+function _removeBorder2(form) {
+  form.classList.remove('active');
+}
 
 var search = new Search();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (search);

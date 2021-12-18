@@ -3,10 +3,8 @@
 @import './utils/mixins';
 @import './utils/classes';
 @import './lib/Mame';
-@import './components/form-input';
 @import './components/sidebar';
 @import './components/navbar';
-@import './components/form-search';
 
 @include styles-default-reset-tag-all();
 
@@ -52,4 +50,4 @@ main#main {
 
 @import './pages/auth';
 @import './pages/dashboard/dashboard';
-
+@import './pages/items/items';

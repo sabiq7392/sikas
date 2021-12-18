@@ -48,49 +48,12 @@
       box-shadow: $shadow-default;
       border-radius: $radius-xxl;
 
-      // background-image: url('../images/wave-1.png');
       background-color: white;
       background-repeat: no-repeat;
       background-position: right bottom;
-      .switch {
-        $radius-half-circle: 30px;
-
-        display: flex;
-
-        background-color: white;
-        box-shadow: $shadow-default;
-        border-radius: $radius-half-circle;
-        a.login, a.register {
-          @include place-center(grid);
-          font-size: $sub-heading;
-          font-weight: 600;
-          color: $color-primary;
-          letter-spacing: 0.3px;
-          flex: 2;
-
-          border-radius: inherit;
-          background-color: white;
-          &.active {
-            background-color: rgba($color-primary, 0.4);
-            color: $color-dark;
-            flex: 3;
-          }
-        }
-      }
-      form {
-        display: inherit;
-        gap: $gap-xl;
-        button#showHidePassword {
-          position: absolute;
-          right: 0;
-          font-size: 18px;
-          z-index: 2;
-
-          background: rgba($color: #fff, $alpha: 0.3);
-          border-radius: $radius-sm;
-          cursor: pointer;
-        }
-      }
+      @import '../components/switch-login-register';
+      @import '../components/form-input';
+      @import '../components/show-hide-password';
     }
   }
 }
