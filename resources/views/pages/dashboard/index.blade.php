@@ -2,7 +2,7 @@
 @section('content')
   <div id="dashboard" class="container d-grid gap-xl">
     <div class="d-flex gap-xl flex-wrap">
-      <article id="cashierApplicationSystem">
+      <article id="cashierApplicationSystem" class="card-bigest">
         <img 
           src="{{ asset('images/cashier-app-system.png') }}" 
           alt="Cashier Application System"

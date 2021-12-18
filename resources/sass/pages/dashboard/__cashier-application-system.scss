@@ -1,21 +1,10 @@
 article#cashierApplicationSystem {
-  display: flex;
-  justify-content: space-between;
-  gap: $gap-xxl;
-
-  padding: $padding-md;
-
-  box-shadow: $shadow-default;
-  background: white;
-  
-  border-radius: $radius-xxl;
-
-  flex: 7;
   img.cashier-app-system {
     @include media('tablet') {
       width: 250px;
     }
   }
+
   div.cashier-app-system-container {
     display: grid;
     gap: $gap-md;
