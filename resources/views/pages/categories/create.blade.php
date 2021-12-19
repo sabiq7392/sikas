@@ -1,17 +1,25 @@
-@extends('index')
+@extends('master')
 @section('content')
-  <form action="/category" method="post">
-    @csrf
-    <div class="form-group">
-      <label for="name">Category</label>
-      <input 
-        id="name" 
-        name="name"
-        type="text" 
-        class="form-control" 
-        placeholder="Masukan kategori..."
-      />
+<div id="items">
+  <div class="form-input bg-none">
+    <div class="card">
+      <h3>Create Categories</h3>
+      <form id="formInput" action="/categories" method="POST">
+        @csrf
+        <div class="input-container">
+          <input 
+            id="name" 
+            name="name"
+            type="text"
+            class="outskirt-input" 
+          />
+          <label for="name" class="outskirt-label">
+            Name
+          </label>
+        </div>
+        <button type="submit">Create</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
+</div>
 @endsection

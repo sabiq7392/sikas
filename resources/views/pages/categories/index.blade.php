@@ -1,58 +1,53 @@
-@extends('index')
+@extends('master')
 @section('content')
-    
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">All Category</h3>
-    </div>
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Kategori</th>
-            <th>Barang</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($categories as $category)
+<div id="categories" class="container">
+  <div class="d-grid gap-xl bg-white radius-xl p-sm">
+    <div class="card">
+      @include('../../partials/card-header')
+      <div class="card-body">
+        <table id="tableCategories" class="table table-bordered table-striped our-table">
+          <thead>
             <tr>
-              <td>{{ $category->id }}</td>
-              <td>{{ $category->name }}</td>
-              <td>{{ count($category->item) }} Barang</td>
-              <td>
-                <a href="/category/{{ $category->id }}" title="detail" class="btn btn-success">
-                  <i class="far fa-eye"></i>
-                </a>
-                <a href="/category/{{ $category->id }}/edit" title="edit" class="btn btn-warning">
-                  <i class="far fa-edit"></i>
-                </a>
-                <form action="/category/{{ $category->id }}" class="d-inline" method="post">
-                  @csrf
-                  @method('delete')
-                  <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </form>
-              </td>
+              <th class="text-center">No</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">More</th>
             </tr>
-          @endforeach
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5"><b>SIKAS Storage 2021</b></td>
-          </tr>
-        </tfoot>
-      </table>
+          </thead>
+          <tbody>
+            @foreach ($categories as $category)
+              <tr id="{{ $category->id }}">
+                <td class="text-center">{{ $loop->iteration }}</td>
+                <td>{{ $category->name }}</td>
+                <td class="text-center d-flex justify-content-center">
+                  <a href="/categories/{{ $category->id }}/edit" aria-label="edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </a>
+                  <form action="/categories/{{ $category->id }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button aria-label="delete">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">SIKAS 2021 STORAGE</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </div>
-
+</div>
 @endsection
 
-@push('script')
-  <script src="{{ asset('template/plugins/datatables/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('template/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+@push('data-table')
+  @include('../../partials/data-table')
   <script>
-    $(function () {
-      $("#example1").DataTable();
-    });
+    $(() => $("#tableCategories").DataTable())
   </script>
 @endpush

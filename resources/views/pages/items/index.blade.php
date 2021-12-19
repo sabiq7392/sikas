@@ -1,44 +1,61 @@
 @extends('master')
 @section('content')
-  <div id="items" class="container d-grid gap-xl">
-    <div class="d-flex gap-xl flex-wrap">
-      <article class="card-bigest">
-        <h3>Chart Product</h3>
-      </article>
-      <article id="recentActivity">
-        <section>
-          <h3 tabindex="0">Recent Activity</h3>
-          <div class="activity-container">
-            <div class="activity">
-              <p tabindex="0">Transaction 700432 was succesfull</p>
-              <time tabindex="0">Today 16.00</time>
-            </div>
-            <div class="activity">
-              <p tabindex="0">Transaction 700213 was failed</p>
-              <time tabindex="0">Today 08.00</time>
-            </div>
-            <div class="activity">
-              <p tabindex="0">Admin has login</p>
-              <time tabindex="0">Today 07.00</time>
-            </div>
-            <div class="activity">
-              <p tabindex="0">Admin has login</p>
-              <time tabindex="0">Today 07.00</time>
-            </div>
-          </div>
-        </section>
-      </article>
+<div id="items" class="container">
+  <div class="d-grid gap-xl bg-white radius-xl p-sm">
+    <div class="card">
+      @include('../../partials/card-header')
+      <div class="card-body">
+        <table id="tableItems" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th class="text-center">No</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Category</th>
+              <th class="text-center">Stock</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">More</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($items as $item)
+              <tr id="{{ $item->id }}">
+                <td class="text-center">{{ $loop->iteration }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->category->name }}</td>
+                <td>{{ $item->stock_box }}</td>
+                <td>{{ $item->price_per_box }}</td>
+                <td class="text-center d-flex justify-content-center">
+                  <a aria-label="edit" href="/items/{{ $item->id }}/edit">
+                    <i class="bi bi-pencil-fill"></i>
+                  </a>
+                  <form action="/items/{{ $item->id }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" aria-label="delete">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6">SIKAS 2021 STORAGE</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
-    <form id="formSearch" action="">
-      <input 
-        id="inputSearch"
-        name=""
-        type="search" 
-        placeholder="search items"
-      />
-      <button id="buttonSearchSubmit" type="submit" aria-label="search activity">
-        <i class="bi bi-search"></i>
-      </button>
-    </form>
   </div>
+</div>
 @endsection
+
+@push('data-table')
+  @include('../../partials/data-table')
+  <script>
+    $(() => $("#tableItems").DataTable());
+  </script>
+@endpush
+
+

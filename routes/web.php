@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsDashboardController;
 use App\Http\Controllers\CategoryDashboardController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
@@ -27,7 +28,7 @@ use App\Http\Controllers\RegisterController;
 // Route::put('/items/detail/{id}', [ItemsController::class, 'update']);
 
 Route::resource('/items', ItemsDashboardController::class);
-Route::resource('/category', CategoryDashboardController::class);
+Route::resource('/categories', CategoryDashboardController::class);
 
 
 Route::get('/auth/login', [LoginController::class, 'index']);

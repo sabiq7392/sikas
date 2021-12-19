@@ -2062,7 +2062,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_input_label_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/input-label.js */ "./resources/js/components/input-label.js");
+/* harmony import */ var _components_outskirt_input_label_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/outskirt-input-label.js */ "./resources/js/components/outskirt-input-label.js");
 /* harmony import */ var _components_show_hide_password_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/show-hide-password.js */ "./resources/js/components/show-hide-password.js");
 /* harmony import */ var _components_min_max_sidebar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/min-max-sidebar.js */ "./resources/js/components/min-max-sidebar.js");
 /* harmony import */ var _components_search_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/search.js */ "./resources/js/components/search.js");
@@ -2074,10 +2074,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var main = function main() {
-  _components_input_label_js__WEBPACK_IMPORTED_MODULE_0__["default"].render();
+  _components_outskirt_input_label_js__WEBPACK_IMPORTED_MODULE_0__["default"].render();
   _components_show_hide_password_js__WEBPACK_IMPORTED_MODULE_1__["default"].render();
-  _components_min_max_sidebar_js__WEBPACK_IMPORTED_MODULE_2__["default"].render();
-  _components_search_js__WEBPACK_IMPORTED_MODULE_3__["default"].render();
+  _components_min_max_sidebar_js__WEBPACK_IMPORTED_MODULE_2__["default"].render(); // search.render();
 };
 
 main();
@@ -2112,106 +2111,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/input-label.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/input-label.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
-
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
-
-var _onFocus = /*#__PURE__*/new WeakSet();
-
-var _onBlur = /*#__PURE__*/new WeakSet();
-
-var _addActiveWhenFocus = /*#__PURE__*/new WeakSet();
-
-var _addActiveWhenBlur = /*#__PURE__*/new WeakSet();
-
-var InputLabel = /*#__PURE__*/function () {
-  function InputLabel() {
-    _classCallCheck(this, InputLabel);
-
-    _classPrivateMethodInitSpec(this, _addActiveWhenBlur);
-
-    _classPrivateMethodInitSpec(this, _addActiveWhenFocus);
-
-    _classPrivateMethodInitSpec(this, _onBlur);
-
-    _classPrivateMethodInitSpec(this, _onFocus);
-
-    this.inputs = document.querySelectorAll('.auth-input');
-    this.labels = document.querySelectorAll('.auth-label');
-  }
-
-  _createClass(InputLabel, [{
-    key: "render",
-    value: function render() {
-      if (this.inputs && this.labels) {
-        _classPrivateMethodGet(this, _onFocus, _onFocus2).call(this);
-
-        _classPrivateMethodGet(this, _onBlur, _onBlur2).call(this);
-      }
-    }
-  }]);
-
-  return InputLabel;
-}();
-
-function _onFocus2() {
-  var _this = this;
-
-  this.inputs.forEach(function (input, index) {
-    input.addEventListener('focus', function () {
-      return _classPrivateMethodGet(_this, _addActiveWhenFocus, _addActiveWhenFocus2).call(_this, input, _this.labels[index]);
-    });
-  });
-}
-
-function _onBlur2() {
-  var _this2 = this;
-
-  this.inputs.forEach(function (input, index) {
-    input.addEventListener('blur', function () {
-      return _classPrivateMethodGet(_this2, _addActiveWhenBlur, _addActiveWhenBlur2).call(_this2, input, _this2.labels[index]);
-    });
-  });
-}
-
-function _addActiveWhenFocus2(input, label) {
-  input.classList.add('active');
-  label.classList.add('active');
-}
-
-function _addActiveWhenBlur2(input, label) {
-  if (input.value === '') {
-    input.classList.remove('active');
-    label.classList.remove('active');
-  } else {
-    label.classList.add('active');
-  }
-}
-
-var inputLabel = new InputLabel();
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (inputLabel);
 
 /***/ }),
 
@@ -2406,6 +2305,121 @@ var minMaxSidebar = new MinMaxSidebar();
 
 /***/ }),
 
+/***/ "./resources/js/components/outskirt-input-label.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/outskirt-input-label.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+var _onRunTime = /*#__PURE__*/new WeakSet();
+
+var _onFocus = /*#__PURE__*/new WeakSet();
+
+var _onBlur = /*#__PURE__*/new WeakSet();
+
+var _addActiveWhenFocus = /*#__PURE__*/new WeakSet();
+
+var _addActiveWhenBlurAndRunTime = /*#__PURE__*/new WeakSet();
+
+var OutskirtInputLabel = /*#__PURE__*/function () {
+  function OutskirtInputLabel() {
+    _classCallCheck(this, OutskirtInputLabel);
+
+    _classPrivateMethodInitSpec(this, _addActiveWhenBlurAndRunTime);
+
+    _classPrivateMethodInitSpec(this, _addActiveWhenFocus);
+
+    _classPrivateMethodInitSpec(this, _onBlur);
+
+    _classPrivateMethodInitSpec(this, _onFocus);
+
+    _classPrivateMethodInitSpec(this, _onRunTime);
+
+    this.inputs = document.querySelectorAll('.outskirt-input');
+    this.labels = document.querySelectorAll('.outskirt-label');
+  }
+
+  _createClass(OutskirtInputLabel, [{
+    key: "render",
+    value: function render() {
+      if (this.inputs && this.labels) {
+        _classPrivateMethodGet(this, _onFocus, _onFocus2).call(this);
+
+        _classPrivateMethodGet(this, _onBlur, _onBlur2).call(this);
+
+        _classPrivateMethodGet(this, _onRunTime, _onRunTime2).call(this);
+      }
+    }
+  }]);
+
+  return OutskirtInputLabel;
+}();
+
+function _onRunTime2() {
+  var _this = this;
+
+  this.inputs.forEach(function (input, index) {
+    _classPrivateMethodGet(_this, _addActiveWhenBlurAndRunTime, _addActiveWhenBlurAndRunTime2).call(_this, input, _this.labels[index]);
+  });
+}
+
+function _onFocus2() {
+  var _this2 = this;
+
+  this.inputs.forEach(function (input, index) {
+    input.addEventListener('focus', function () {
+      return _classPrivateMethodGet(_this2, _addActiveWhenFocus, _addActiveWhenFocus2).call(_this2, input, _this2.labels[index]);
+    });
+  });
+}
+
+function _onBlur2() {
+  var _this3 = this;
+
+  this.inputs.forEach(function (input, index) {
+    input.addEventListener('blur', function () {
+      return _classPrivateMethodGet(_this3, _addActiveWhenBlurAndRunTime, _addActiveWhenBlurAndRunTime2).call(_this3, input, _this3.labels[index]);
+    });
+  });
+}
+
+function _addActiveWhenFocus2(input, label) {
+  input.classList.add('active');
+  label.classList.add('active');
+}
+
+function _addActiveWhenBlurAndRunTime2(input, label) {
+  if (input.value === '') {
+    input.classList.remove('active');
+    label.classList.remove('active');
+  } else {
+    input.classList.add('active');
+    label.classList.add('active');
+  }
+}
+
+var outskirtInputLabel = new OutskirtInputLabel();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (outskirtInputLabel);
+
+/***/ }),
+
 /***/ "./resources/js/components/search.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/search.js ***!
@@ -2456,9 +2470,11 @@ var Search = /*#__PURE__*/function () {
   _createClass(Search, [{
     key: "render",
     value: function render() {
-      _classPrivateMethodGet(this, _onFocus, _onFocus2).call(this);
+      if (form) {
+        _classPrivateMethodGet(this, _onFocus, _onFocus2).call(this);
 
-      _classPrivateMethodGet(this, _onBlur, _onBlur2).call(this);
+        _classPrivateMethodGet(this, _onBlur, _onBlur2).call(this);
+      }
     }
   }]);
 

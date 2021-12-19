@@ -7,8 +7,12 @@
 
   <title>{{ $title }} | Sikas</title>
 
-  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+  <link 
+    rel="stylesheet" 
+    href="{{ asset('template/dist/css/adminlte.min.css') }}"
+  />
 </head>
 <body>
 
@@ -22,6 +26,8 @@
       @yield('auth')
     @endif
 
-  <script src="{{ asset('js/app.js') }}"></script>
+
+  <script type="module" src="{{ asset('js/app.js') }}"></script>
+  @stack('data-table')
 </body>
 </html>

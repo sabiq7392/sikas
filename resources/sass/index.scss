@@ -5,6 +5,7 @@
 @import './lib/Mame';
 @import './components/sidebar';
 @import './components/navbar';
+@import './components/card';
 
 @include styles-default-reset-tag-all();
 
@@ -22,6 +23,8 @@
   background: rgb(170, 170, 170);
 }
 
+
+
 *:focus {
   border-color: $color-primary;
   outline-color: $color-primary;
@@ -31,7 +34,7 @@ body {
   font-family: $font-primary;
 }
 
-input, button, a {
+input, button, a, select {
   min-height: 44px;
   min-width: 44px;
   border: none
@@ -48,6 +51,13 @@ main#main {
   }
 }
 
+p {
+  margin-bottom: 0!important;
+}
+
+
+
 @import './pages/auth';
 @import './pages/dashboard/dashboard';
 @import './pages/items/items';
+@import './pages/categories/categories';

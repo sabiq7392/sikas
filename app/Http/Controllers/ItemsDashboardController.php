@@ -16,7 +16,7 @@ class ItemsDashboardController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Show All Items',
+            'title' => 'Items',
             'items' => Item::All(),
         ];
 
@@ -31,7 +31,7 @@ class ItemsDashboardController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Create Items',
+            'title' => 'Items',
             'categories' => Category::all(),
         ];
 
@@ -49,12 +49,12 @@ class ItemsDashboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'category_id' => 'required',
-            'price_per_box' => 'required',
             'stock_box' => 'required',
+            'price_per_box' => 'required',
         ]);
 
         Item::create($validatedData);
-        return redirect('/item')->with('success', 'Berhasil Tambah Item');
+        return redirect('/items')->with('success', 'Berhasil Tambah Item');
 
         // if ($validator->fails()) {
         //     echo 'gagal';
@@ -73,7 +73,7 @@ class ItemsDashboardController extends Controller
     public function show(Item $item)
     {
         $data = [
-            'title' => 'Detail',
+            'title' => 'Items',
             'item' => $item,
         ];
 
@@ -89,7 +89,7 @@ class ItemsDashboardController extends Controller
     public function edit(Item $item)
     {
         $data = [
-            'title' => 'Edit',
+            'title' => 'Items',
             'item' => $item,
             'categories' => Category::all(),
         ];
@@ -113,7 +113,7 @@ class ItemsDashboardController extends Controller
             'stock_box' => 'required',
         ]);
         $item->update($validatedData);
-        return redirect("/item/$item->id")->with('success', 'Item Berhasil Diupdate');
+        return redirect("/items/$item->id")->with('success', 'Item Berhasil Diupdate');
     }
 
     /**
@@ -125,7 +125,7 @@ class ItemsDashboardController extends Controller
     public function destroy(Item $item)
     {
         Item::destroy('id', $item->id);
-        return redirect("/item")->with('success', 'Item Berhasil Dihapus');
+        return redirect("/items")->with('success', 'Item Berhasil Dihapus');
     }
 
     // private function dataFromInput($request)

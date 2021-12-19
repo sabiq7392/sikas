@@ -1,14 +1,21 @@
-class InputLabel {
+class OutskirtInputLabel {
   constructor() {
-    this.inputs = document.querySelectorAll('.auth-input');
-    this.labels = document.querySelectorAll('.auth-label');
+    this.inputs = document.querySelectorAll('.outskirt-input');
+    this.labels = document.querySelectorAll('.outskirt-label');
   }
 
   render() {
     if (this.inputs && this.labels) {
       this.#onFocus();
       this.#onBlur();
+      this.#onRunTime();
     }
+  }
+
+  #onRunTime() {
+    this.inputs.forEach((input, index) => {
+      this.#addActiveWhenBlurAndRunTime(input, this.labels[index])
+    })
   }
 
   #onFocus() {
@@ -19,7 +26,7 @@ class InputLabel {
 
   #onBlur() {
     this.inputs.forEach((input, index) => {
-      input.addEventListener('blur', () => this.#addActiveWhenBlur(input, this.labels[index]));
+      input.addEventListener('blur', () => this.#addActiveWhenBlurAndRunTime(input, this.labels[index]));
     });
   }
 
@@ -28,16 +35,17 @@ class InputLabel {
     label.classList.add('active');
   }
 
-  #addActiveWhenBlur(input, label) {
+  #addActiveWhenBlurAndRunTime(input, label) {
     if (input.value === '') {
       input.classList.remove('active');
       label.classList.remove('active');
     } else {
+      input.classList.add('active');
       label.classList.add('active');
     }
   }
 }
 
-const inputLabel = new InputLabel();
+const outskirtInputLabel = new OutskirtInputLabel();
 
-export default inputLabel;
+export default outskirtInputLabel;

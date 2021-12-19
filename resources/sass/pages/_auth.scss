@@ -32,28 +32,5 @@
       }
     }
   }
-
-  .form-input-auth {
-    @include place-center(grid);
-    flex: 4;
-    background: $linear-gradient-default;
-    .card {
-      display: grid;
-      gap: $gap-xxl;
-
-      width: 80%;
-      max-width: 500px!important;
-      padding: $padding-md;
-
-      box-shadow: $shadow-default;
-      border-radius: $radius-xxl;
-
-      background-color: white;
-      background-repeat: no-repeat;
-      background-position: right bottom;
-      @import '../components/switch-login-register';
-      @import '../components/form-input';
-      @import '../components/show-hide-password';
-    }
-  }
+  @import '../components/form-input';
 }

@@ -5,8 +5,10 @@ class Search {
   }
   
   render() {
-    this.#onFocus(); 
-    this.#onBlur();
+    if (form) {
+      this.#onFocus(); 
+      this.#onBlur();
+    }
   }
 
   #onFocus() {

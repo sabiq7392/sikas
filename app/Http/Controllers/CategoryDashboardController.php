@@ -15,7 +15,7 @@ class CategoryDashboardController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Show All Items',
+            'title' => 'Categories',
             'categories' => Category::All(),
         ];
 
@@ -50,7 +50,7 @@ class CategoryDashboardController extends Controller
         ]);
 
         Category::create($validatedData);
-        return redirect('/category')->with('success', 'Berhasil Tambah Kategori');
+        return redirect('/categories')->with('success', 'Berhasil Tambah Kategori');
     }
 
     /**
@@ -99,7 +99,7 @@ class CategoryDashboardController extends Controller
         ]);
 
         $category->update($validatedData);
-        return redirect("/category/$category->id")->with('success', 'Kategori Berhasil Diupdate');
+        return redirect("/categories/$category->id")->with('success', 'Kategori Berhasil Diupdate');
     }
 
     /**
@@ -111,6 +111,6 @@ class CategoryDashboardController extends Controller
     public function destroy(Category $category)
     {
         Category::destroy('id', $category->id);
-        return redirect("/category")->with('success', 'Kategori Berhasil Dihapus');
+        return redirect("/categories")->with('success', 'Kategori Berhasil Dihapus');
     }
 }

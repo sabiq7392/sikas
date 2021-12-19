@@ -13,26 +13,6 @@ article#cashierApplicationSystem {
       font-size: 36px;
       color: $color-dark;
     }
-    a.go-to-cashier {
-      @include place-center(flex);
-      background: $color-dark;
-
-      color: $color-primary;
-      font-weight: bold;
-
-      border-radius: 30px;
-      &:hover {
-        filter: brightness(110%);
-        img {
-          transform: translateX(20px);
-        }
-      }
-
-      img.icon-arrow-go-to-cashier {
-        width: 28px;
-        height: 24px;
-        transition: $transition-fast;
-      }
-    }
+    @import '../../components/anchor-go-to-cashier';
   }
 }
