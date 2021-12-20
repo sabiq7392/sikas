@@ -6,6 +6,10 @@
 @import './components/sidebar';
 @import './components/navbar';
 @import './components/card';
+@import '.components/button-go-to-add-form';
+@import '.components/table';
+@import '.components/data-table';
+@import '.components/form-input';
 
 @include styles-default-reset-tag-all();
 
@@ -55,9 +59,23 @@ p {
   margin-bottom: 0!important;
 }
 
+.card-bigest {
+  h3 {
+    color: $color-dark;
+  }
+
+  p {
+    font-size: 30px;
+  }
+
+  span {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
 
 
 @import './pages/auth';
 @import './pages/dashboard/dashboard';
-@import './pages/items/items';
 @import './pages/categories/categories';

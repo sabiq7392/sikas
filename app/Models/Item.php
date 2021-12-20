@@ -10,19 +10,20 @@ class Item extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'user_id',
         'category_id',
-        'price_per_box',
-        'stock_box',
+        'box_id',
+        'name',
+        'price',
+        'value',
     ];
-
-    public function findById($id)
-    {
-        return Items::where('id', $id)->first();
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

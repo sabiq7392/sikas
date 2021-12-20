@@ -5,7 +5,7 @@ class Search {
   }
   
   render() {
-    if (form) {
+    if (this.form) {
       this.#onFocus(); 
       this.#onBlur();
     }

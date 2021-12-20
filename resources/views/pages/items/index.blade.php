@@ -3,17 +3,36 @@
 <div id="items" class="container">
   <div class="d-grid gap-xl bg-white radius-xl p-sm">
     <div class="card">
-      @include('../../partials/card-header')
+      <div class="card-header">
+        <div class=" d-flex justify-content-between">
+          <h3 class="text-dark">
+            Show All {{ $title }}
+          </h3>
+          <a 
+            id="goToAddForm" 
+            href="/items/create" 
+            title="add item"
+          >
+          <i class="bi bi-plus-circle"></i>
+          Add {{ $title }} 
+        </a>
+        </div>
+      </div>
       <div class="card-body">
+        @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+        </div>
+        @endif
         <table id="tableItems" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th class="text-center">No</th>
               <th class="text-center">Name</th>
-              <th class="text-center">Category</th>
-              <th class="text-center">Stock</th>
-              <th class="text-center">Price</th>
-              <th class="text-center">More</th>
+              <th class="text-center">Kategori</th>
+              <th class="text-center">Harga</th>
+              <th class="text-center">Jumlah</th>
+              <th class="text-center">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -22,26 +41,22 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->category->name }}</td>
-                <td>{{ $item->stock_box }}</td>
-                <td>{{ $item->price_per_box }}</td>
+                <td>Rp. {{ number_format($item->price, 2) }},-</td>
+                <td>{{ $item->value }} Unit</td>
                 <td class="text-center d-flex justify-content-center">
+                  <a aria-label="edit" href="/boxes/{{ $item->box_id }}">
+                    <i class="bi bi-eye text-primary"></i>
+                  </a>
                   <a aria-label="edit" href="/items/{{ $item->id }}/edit">
                     <i class="bi bi-pencil-fill"></i>
                   </a>
-                  <form action="/items/{{ $item->id }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" aria-label="delete">
-                      <i class="bi bi-trash-fill"></i>
-                    </button>
-                  </form>
                 </td>
               </tr>
             @endforeach
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="6">SIKAS 2021 STORAGE</td>
+              <td colspan="6">SISTORAGE 2021</td>
             </tr>
           </tfoot>
         </table>

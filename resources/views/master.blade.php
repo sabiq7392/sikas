@@ -7,16 +7,13 @@
 
   <title>{{ $title }} | Sikas</title>
 
-  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-  <link 
-    rel="stylesheet" 
-    href="{{ asset('template/dist/css/adminlte.min.css') }}"
-  />
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
 </head>
 <body>
 
-    @if (!(Request::is('auth/login') || Request::is('auth/register')))
+    @if (!(Request::is('login') || Request::is('register')))
       @include('partials.navbar')
       @include('partials.sidebar')
       <main id="main">

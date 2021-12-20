@@ -49,19 +49,15 @@ class ItemsDashboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'category_id' => 'required',
-            'stock_box' => 'required',
-            'price_per_box' => 'required',
+            'price' => 'required',
+            'value' => 'required',
         ]);
 
-        Item::create($validatedData);
-        return redirect('/items')->with('success', 'Berhasil Tambah Item');
+        $validatedData["user_id"] = session('id');
+        $validatedData["box_id"] = $request->box_id;
 
-        // if ($validator->fails()) {
-        //     echo 'gagal';
-        // } else {
-        //     Item::create($this->dataFromInput($request));
-        //     return redirect('/items');
-        // }
+        Item::create($validatedData);
+        return redirect('/boxes/' . $request->box_id)->with('successCreate', 'Berhasil Tambah Item');
     }
 
     /**
@@ -72,12 +68,7 @@ class ItemsDashboardController extends Controller
      */
     public function show(Item $item)
     {
-        $data = [
-            'title' => 'Items',
-            'item' => $item,
-        ];
-
-        return view('pages.items.show', $data);
+        //
     }
 
     /**
@@ -109,11 +100,11 @@ class ItemsDashboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'category_id' => 'required',
-            'price_per_box' => 'required',
-            'stock_box' => 'required',
+            'price' => 'required',
+            'value' => 'required',
         ]);
         $item->update($validatedData);
-        return redirect("/items/$item->id")->with('success', 'Item Berhasil Diupdate');
+        return redirect("/items/$item->id/edit")->with('success', 'Item Berhasil Diupdate');
     }
 
     /**
@@ -125,16 +116,6 @@ class ItemsDashboardController extends Controller
     public function destroy(Item $item)
     {
         Item::destroy('id', $item->id);
-        return redirect("/items")->with('success', 'Item Berhasil Dihapus');
+        return redirect("/boxes/" . $item->box_id)->with('successDelete', 'Item Berhasil Dihapus');
     }
-
-    // private function dataFromInput($request)
-    // {
-    //     return [
-    //         'name' => $request->item_name,
-    //         'category_id' => $request->item_category,
-    //         'price_per_box' => $request->item_price_per_box,
-    //         'stock_box' => $request->item_stock_box,
-    //     ];
-    // }
 }

@@ -1,3 +1,9 @@
+<?php
+  function setActive($url) {
+    return str_contains(url()->current(), $url) ? 'active' : '';
+  }
+?>
+
 <nav id="sidebar">
   <a href="/">
     <h1 class="brand">S<span id="brandLongName">IKAS</span></h1>
@@ -7,21 +13,29 @@
       <i class="bi bi-speedometer"></i> 
       <span>Dashboard</span>
     </a>
-    <a href="">
+    <a href="/cashiers" class="{{ setActive('cashiers') }}">
       <i class="bi bi-coin"></i> 
-      <span>Cashier</span>
+      <span>Cashiers</span>
     </a>
-    <a href="/items" class="{{ str_contains(url()->current(), 'items') ? 'active' : '' }}">
+    <a href="/boxes" class="{{ setActive('boxes') }}">
+      <i class="bi bi-truck"></i>
+      <span>Boxes</span>
+    </a>
+    <a href="/items" class="{{ setActive('items') }}">
       <i class="bi bi-box-seam"></i> 
       <span>Items</span>
     </a>
-    <a href="/categories" class="{{ str_contains(url()->current(), 'categories') ? 'active' : '' }}">
+    <a href="/categories" class="{{ setActive('categories') }}">
       <i class="bi bi-boxes"></i> 
       <span>Categories</span>
     </a>
-    <a href="">
+    <a href="/users" class="{{ setActive('users') }}">
       <i class="bi bi-person-check"></i> 
-      <span>Admin</span>
+      <span>Users</span>
+    </a>
+    <a href="/logout">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Logout</span>
     </a>
   </div>
 </nav>

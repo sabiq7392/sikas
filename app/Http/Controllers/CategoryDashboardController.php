@@ -30,7 +30,7 @@ class CategoryDashboardController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Create Items',
+            'title' => 'Categories',
             'categories' => Category::all(),
         ];
 
@@ -50,7 +50,7 @@ class CategoryDashboardController extends Controller
         ]);
 
         Category::create($validatedData);
-        return redirect('/categories')->with('success', 'Berhasil Tambah Kategori');
+        return redirect('/categories')->with('success', 'Berhasil Menambah Kategori');
     }
 
     /**
@@ -99,7 +99,7 @@ class CategoryDashboardController extends Controller
         ]);
 
         $category->update($validatedData);
-        return redirect("/categories/$category->id")->with('success', 'Kategori Berhasil Diupdate');
+        return redirect("/categories")->with('success', 'Kategori Berhasil Diupdate');
     }
 
     /**

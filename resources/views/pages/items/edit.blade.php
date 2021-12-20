@@ -4,6 +4,11 @@
   <div class="form-input bg-none">
     <div class="card">
       <h3>Edit Items</h3>
+      @if (session()->has('success'))
+      <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+      </div>
+      @endif
       <form id="formInput" action="/items/{{ $item->id }}" method="post">
         @csrf
         @method('put')
@@ -39,29 +44,29 @@
         </div>
         <div class="input-container">
           <input 
-            id="stockBox" 
-            name="stock_box"
+            id="harga" 
+            name="price"
             type="number"
             class="outskirt-input" 
-            value="{{ $item->stock_box }}"
+            value="{{ $item->price }}"
           />
-          <label for="stockBox" class="outskirt-label">
-            Stock
+          <label for="harga" class="outskirt-label">
+            Harga
           </label>
         </div>
         <div class="input-container">
           <input 
-            id="pricePerBox" 
-            name="price_per_box"
+            id="jumlah" 
+            name="value"
             type="number"
             class="outskirt-input" 
-            value="{{ $item->price_per_box }}"
+            value="{{ $item->value }}"
           />
-          <label for="pricePerBox" class="outskirt-label">
-            Price Per Box
+          <label for="jumlah" class="outskirt-label">
+            Jumlah
           </label>
         </div>
-        <button type="submit">Create</button>
+        <button type="submit">Edit</button>
       </form>
     </div>
   </div>

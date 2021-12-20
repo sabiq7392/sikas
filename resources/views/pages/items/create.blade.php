@@ -3,7 +3,7 @@
 <div id="items">
   <div class="form-input bg-none">
     <div class="card">
-      <h3>Create Items</h3>
+      <h3>Add {{ $title }}</h3>
       <form id="formInput" action="/items" method="post">
         @csrf
         <div class="input-container">
@@ -51,7 +51,20 @@
             Price Per Box
           </label>
         </div>
-        <button type="submit">Create</button>
+
+        <div class="input-container">
+          <input 
+            id="productPerBox" 
+            name="product_per_box"
+            type="number"
+            class="outskirt-input" 
+          />
+          <label for="productPerBox" class="outskirt-label">
+            Product Per Box
+          </label>
+        </div>
+        
+        <button type="submit">Add</button>
       </form>
     </div>
   </div>

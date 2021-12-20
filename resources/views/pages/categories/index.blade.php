@@ -5,6 +5,12 @@
     <div class="card">
       @include('../../partials/card-header')
       <div class="card-body">
+        @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+        </div>
+        @endif
+        
         <table id="tableCategories" class="table table-bordered table-striped our-table">
           <thead>
             <tr>

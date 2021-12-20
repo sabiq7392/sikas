@@ -15,50 +15,71 @@
     <div class="container d-flex justify-content-center">
       <div class="card">
         <div class="switch">
-          <a href="/auth/login" class="login">Login</a>
-          <a href="/auth/register" class="register active">Register</a>
+          <a href="/login" class="login">Login</a>
+          <a href="/register" class="register active">Register</a>
         </div>
-        <form id="formInput" action="" method="">
+        @if (session()->has('error'))
+        <div class="alert alert-danger" role="alert">
+          {{ session('error') }}
+        </div>
+        @endif
+        <form id="formInput" action="/register" method="post">
+          @csrf
           <div class="input-container">
             <input 
               id="username" 
-              name=""
+              name="name"
               type="text"
-              class="outskirt-input" 
+              class="outskirt-input @error('name') is-invalid @enderror" 
               placeholder=""
             />
             <label for="username" class="outskirt-label">
-              Username
+              Fullname
             </label>
+            @error('name')
+            <div class="invalid-feedback bottom--4">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="input-container">
             <input 
               id="email" 
-              name=""
+              name="email"
               type="email"
-              class="outskirt-input" 
+              class="outskirt-input @error('email') is-invalid @enderror" 
               placeholder=""
             />
             <label for="email" class="outskirt-label">
-              Email
+              Email Address
             </label>
+            @error('email')
+            <div class="invalid-feedback bottom--4">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="input-container">
             <input 
               id="password" 
-              name=""
+              name="password"
               type="password"
-              class="outskirt-input" 
+              class="outskirt-input @error('password') is-invalid @enderror" 
               placeholder=""
             />
             <label for="password" class="outskirt-label">
               Password
             </label>
+            @error('password')
+            <div class="invalid-feedback bottom--4">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="input-container">
             <input 
               id="confirm-password" 
-              name=""
+              name="password2"
               type="password"
               class="outskirt-input" 
               placeholder=""
@@ -67,7 +88,7 @@
               Confirm Password
             </label>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit">Register</button>
         </form>
       </div>
     </div>
